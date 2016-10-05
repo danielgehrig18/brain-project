@@ -1,7 +1,9 @@
 
 % test feature
-%X = generate_X('data/set_train', 720, 810);
-%Y = generate_X('data/set_train', 500, 800);
+X = generate_X('data/set_train', 720, 810);
+Y = generate_X('data/set_train', 500, 800);
+
+%%
 
 y = csvread('data/targets.csv');
 
