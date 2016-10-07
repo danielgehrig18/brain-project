@@ -6,7 +6,8 @@ y = csvread(y_file);
 
 X = generate_X(x_folder, limit1, limit2);    
 
-b = inv(X'*X)*X'*y; 
+% b = inv(X'*X)*X'*y; 
+b = pinv(X)*y;
 
 error = (X*b-y)'*(X*b-y);
 
