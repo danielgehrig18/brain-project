@@ -11,7 +11,7 @@ X = generate_X(x_folder, limit1, limit2);
 
 % minimization of square error -> derivation w. resp. to beta = 0
 % TODO: possibly regularize to avoid numerical instability
-b = inv(X'*X)*X'*y; 
+b = pinv(X)*y;
 
 % total error for all datapoints
 error = (X*b-y)'*(X*b-y);

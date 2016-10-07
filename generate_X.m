@@ -7,7 +7,7 @@ files = dir(folder);
 
 % iterate through files in folder
 for file = files'
-    file_name = file.name
+    file_name = file.name;
 
     % skip system files (.etc)
     if file_name(1) == '.'

@@ -13,7 +13,7 @@ for limit1=680:5:720
             X = [X; x];
         end
 
-        b = inv(X'*X)*X'*targets; 
+        b = pinv(X)*targets; 
 
         z(limit1/5,limit2/5) = (X*b-targets)'*(X*b-targets);
         p = p-1
