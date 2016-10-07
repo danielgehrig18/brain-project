@@ -3,10 +3,11 @@ function [ b, error, r_squared ] = train_b( x_folder, y_file, limit1, limit2 )
 %   Detailed explanation goes here
 
 y = csvread(y_file);
-
 X = generate_X(x_folder, limit1, limit2);    
 
+%minimization of square error -> derivation w. resp. to beta = 0
 b = inv(X'*X)*X'*y; 
+
 
 error = (X*b-y)'*(X*b-y);
 
