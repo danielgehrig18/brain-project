@@ -1,19 +1,31 @@
 function [ X ] = generate_X(folder, limit1, limit2)
-%GENERATE_X Summary of this function goes here
-%   Detailed explanation goes here
-    if strcmp(folder(10:end), 'train')
-        last_index = 278;
-    else
-        last_index = 138;
+%GENERATE_X Generate the data matrix from data in folder. Parameters limit1
+%and limit2 are for the feature_extract function. 
+%Resulting X matrix is of size #data_points x (#features + 1)
+        
+files = dir(folder);
+
+% iterate through files in folder
+for file = files'
+    file_name = file.name;
+
+    % skip system files (.etc)
+    if file_name(1) == '.'
+        continue
     end
     
-    feature_num = 3; %currently: WM, GM, Ventricle - should be assigned somewhere else
-    X = zeros(last_index,feature_num);
+    % find file number (file of the form 'test_3.nii'
+    parse1 = strsplit(file_name, '.');
+    parse2 = strsplit(parse1{1}, '_');
+    file_number = str2num(parse2{2});
+        
+    % load file
+    path_name = strcat(folder, '/', file_name);
+    im = nii_read_volume(path_name); 
     
-    for i=1:last_index
-        path_name = strcat(folder, '/', folder(10:end), '_', num2str(i), '.nii');
-        im = nii_read_volume(path_name); 
-        X(i,:) = feature_extract(im, limit1, limit2);
-    end
+    % extract features from file
+    x = feature_extract(im, limit1, limit2);
+    X(file_number, :) = x;
+end
 end
 
