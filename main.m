@@ -7,8 +7,8 @@
 addpath('feature extract', 'ReadData3D_version1k/nii');
 
 % train b with linear regression model and parameters
-%[b, error, r_squared] = train_b('data/set_train', 'data/targets.csv', 720, 810);
+model = train_b('data/set_train', 'data/targets.csv', 500, 810);
 
 % submit target values for test set  
-submission(b, 'data/set_test', 'data/submit.csv', 720, 810);
+submission(model, 'data/set_test', 'data/submit.csv', 500, 810);
 

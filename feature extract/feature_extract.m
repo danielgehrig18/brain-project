@@ -5,8 +5,5 @@ function [ x ] = feature_extract( im , limit1, limit2)
 
 % calculate fractions
 x = gwv_weights(im, limit1, limit2);
-
-% add 1 to the end of the matrix to simplify beta calculation 
-x(end+1) = 1;
 end
 
