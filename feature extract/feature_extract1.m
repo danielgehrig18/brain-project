@@ -1,6 +1,7 @@
-function [ x ] = feature_extract1( im )
+function [ x ] = feature_extract1( path_name )
 %FEATURE_EXTRACT Summary of this function goes here
 %   Detailed explanation goes here
+im = nii_read_volume(path_name); 
 
 x = [];
 
