@@ -1,3 +1,4 @@
+addpath('data','testing','ReadData3D_version1k/nii','feature extract');
 
 % test feature
 X = generate_X('data/set_train', 720, 810);
