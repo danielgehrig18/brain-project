@@ -4,7 +4,10 @@ function [ x ] = feature_extract( path_name , limit1, limit2)
 %gwv_weights that calculates the fractions. 
 
 % calculate fractions
-im = nii_read_volume(path_name); 
+im = nii_read_volume(path_name);
+
+im = preprocessing(im);
+
 x = gwv_weights(im, limit1, limit2);
 end
 

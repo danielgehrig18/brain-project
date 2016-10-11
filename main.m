@@ -4,7 +4,7 @@
 % (coefficient of determination).
 
 % add relevant folder to path
-addpath('feature extract', 'ReadData3D_version1k/nii');
+addpath('feature extract', 'preprocess','ReadData3D_version1k/nii');
 
 % train b with linear regression model and parameters
 model = train_b('data/set_train', 'data/targets.csv', 500, 810);
