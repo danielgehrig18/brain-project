@@ -24,7 +24,7 @@ for file = files'
     im = nii_read_volume(path_name); 
     
     % extract features from file
-    x = feature_extract(im, limit1, limit2);
+    x = feature_extract3(im, limit1, limit2);
     X(file_number, :) = x;
 end
 end
