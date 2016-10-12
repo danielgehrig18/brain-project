@@ -23,6 +23,7 @@ for file = files'
     path_name = strcat(folder, '/', file_name);
     
     % extract features from file
+    %x = feature_extract_cerebral_hemisphere(path_name, 1);
     x = feature_extract3(path_name, limit1, limit2);
     X(file_number, :) = x;
 end
