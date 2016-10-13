@@ -23,7 +23,7 @@ for file = files'
     path_name = strcat(folder, '/', file_name);
     
     % extract features from file
-    x = feature_extract3(path_name, limit1, limit2);
+    x = getCSF_Tissue_01(path_name, limit1, limit2);
     X(file_number, :) = x;
 end
 end
