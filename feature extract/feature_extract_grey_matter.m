@@ -2,19 +2,20 @@
 %FEATURE_EXTRACT_GREY_MATTER Summary of this function goes here
 %   Detailed explanation goes here
 clear all
-smallesterror = 9999999999999999;
-optimalthreshold = 0;
-optimallimits = 0;
-for threshold = 10:10:1500
-    for limits = 5:5:400
+% smallesterror = 9999999999999999;
+% optimalthreshold = 0;
+% optimallimits = 0;
+% for threshold = 10:10:1500
+%     for limits = 5:5:400
 
 X = zeros(1,278);       %Greymatter vector
-%threshold = 700;    % 0 to 1524 
+threshold = 730;    % 0 to 1524 
+limits = 100;
 
-parfor i=1:278
+for i=1:278
     path_name = ['data/set_train/train_'  num2str(i) '.nii'];
     im = nii_read_volume(path_name);
-%     imx = im;
+    imx = im;
     sz = size(im);
     
 
@@ -28,11 +29,11 @@ parfor i=1:278
                 for x=1:sz(1)     
                     if (im(x,y,z) > (threshold-limits) && im(x,y,z) < (threshold+limits))
                          X(1,i) = X(1,i) + 1;
-%                         imx(x,y,z) = 0;
+                        imx(x,y,z) = 0;
                     end
                 end
             end
-%         imshow([squeeze(imresize(im(:,:,z),3)),squeeze(imresize(imx(:,:,z),3))],[]);  
+        imshow([squeeze(imresize(im(:,:,z),2)),squeeze(imresize(imx(:,:,z),2))],[]);  
 %         if (z == 125)
 %             f = input('Press any key to continue');
 %         end
@@ -70,13 +71,13 @@ meanerror = sqrt(Error/278);
 
 disp(['The MEAN-Error is: ' num2str(meanerror) ' years @ Threshold: ' num2str(threshold) ' @ Limits ' num2str(limits)]);
 
-if (meanerror < smallesterror)
-    smallesterror = meanerror;
-    optimalthreshold = threshold;
-    optimallimits = limits;
-end
+% if (meanerror < smallesterror)
+%     smallesterror = meanerror;
+%     optimalthreshold = threshold;
+%     optimallimits = limits;
+% end
 plot(yCalc,X)
-end
-end
-disp(['Found optimal MEAN-Error: ' num2str(smallesterror) ' years @ Threshold: ' num2str(optimalthreshold) ' @ Limits ' num2str(optimallimits)]);
+% end
+% end
+% disp(['Found optimal MEAN-Error: ' num2str(smallesterror) ' years @ Threshold: ' num2str(optimalthreshold) ' @ Limits ' num2str(optimallimits)]);
 
