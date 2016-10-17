@@ -1,6 +1,6 @@
-function [ x ] = feature_extract( path_name , limit1, limit2)
+function [ x ] = feature_extract( path_name , parameters)
 %FEATURE_EXTRACT extracts percentages of ventricular, white brain mass and
-%grey brain mass from an image. Limit1 and limit2 are parameters for
+%grey brain mass from an image. parameters(1) and parameters(2) are parameters for
 %gwv_weights that calculates the fractions. 
 
 % calculate fractions
@@ -8,6 +8,6 @@ im = nii_read_volume(path_name);
 
 im = preprocessing(im);
 
-x = gwv_weights(im, limit1, limit2);
+x = gwv_weights(im, parameters(1), parameters(2));
 end
 

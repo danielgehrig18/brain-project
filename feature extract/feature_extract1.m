@@ -25,19 +25,5 @@ for i = 1:x_step+1:176
     end
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
 

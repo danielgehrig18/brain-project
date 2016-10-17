@@ -1,23 +1,21 @@
-function [ x ] = feature_extract3( path_name , limit1, limit2)
+function [ x ] = feature_extract3( path_name , parameters)
 %FEATURE_EXTRACT extracts percentages of ventricular, white brain mass and
 %grey brain mass from an image. Limit1 and limit2 are parameters for
 %gwv_weights that calculates the fractions. 
 
 % calculate fractions
-im = csvread(path_name);
-h = size(im);
+im = double(nii_read_volume(path_name)); 
 
-for i=h(2):-1:1
-    if im(i) ~= 0
-        effective_size = i;
-        break
-    end
+im = im*parameters/max(im(:));
+
+x = zeros(1,parameters);
+for i=0:parameters-1
+    p_region = im<i+1;
+    m_region = im>i;
+    
+    total = p_region.*m_region;
+    
+    x(i+1) = sum(total(:));
 end
-adj_limit_1 = limit1 * effective_size/h(2);
-adj_limit_2 = limit2 * effective_size/h(2);
-
-x = sum(im(ceil(adj_limit_1):floor(adj_limit_2)));
-x = x + (ceil(adj_limit_1)-adj_limit_1)*im(floor(adj_limit_1));
-x = x - (floor(adj_limit_2)-adj_limit_2)*im(ceil(adj_limit_2));
 end
 
