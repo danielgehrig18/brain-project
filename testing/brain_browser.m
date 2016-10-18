@@ -1,4 +1,5 @@
 % show brains
+    hold on;
     threshold = 1000;
     final_image = zeros(352,416,3);
     V_1 = nii_read_volume('data/set_train/train_57.nii');   %Age: 18

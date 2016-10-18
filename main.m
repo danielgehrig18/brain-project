@@ -9,9 +9,11 @@ addpath('feature extract', 'preprocess','ReadData3D_version1k/nii');
 % choose function and its parameters
 fun = 'feature_extract3';
 parameters = 10;
-
 % train b with linear regression model and parameters
 [model, X] = train_b('data/set_train', 'data/targets.csv', fun, parameters);
+disp('Training finished successfully!');
 
-% submit target values for test set  
+disp('Creating submission file using Data: data/set_test and Targets: data/submit.csv ...');
+% submit target values for test set 
 y_hat = submission('data/set_test', 'data/submit.csv', model, fun, parameters);
+disp('Submission file created successfully!');
