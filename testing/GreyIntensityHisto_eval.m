@@ -22,7 +22,7 @@ all_struct = struct(field1,value1);
 
 % Split brain in parts in direction of dimension
 dimension = 3;
-parts = 8;
+parts = 1;
 
 % Numbers of first and last evaluated MRI
 fmri = 1;
@@ -78,6 +78,7 @@ title('Grey Intensity Graph')
 legend('20','25','61','84')
 xlabel('Grey values')
 ylabel('Intensity')
+xlim([0 1750]);
 hold off
 end
 

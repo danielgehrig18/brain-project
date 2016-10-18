@@ -14,7 +14,7 @@ end
 split_size = size(im,dimension);
 
 remainder = mod(split_size,parts);
-denominator = floor(split_size/parts);
+divider = floor(split_size/parts);
 
 if remainder == 0
     split_im = cell(parts,1);
@@ -25,11 +25,11 @@ end
 for i = 1:parts
     switch dimension
         case 1
-            split_im{i} = im((i-1)*denominator+1:i*denominator,:,:);
+            split_im{i} = im((i-1)*divider+1:i*divider,:,:);
         case 2
-            split_im{i} = im(:,(i-1)*denominator+1:i*denominator,:);
+            split_im{i} = im(:,(i-1)*divider+1:i*divider,:);
         case 3
-            split_im{i} = im(:,:,(i-1)*denominator+1:i*denominator);
+            split_im{i} = im(:,:,(i-1)*divider+1:i*divider);
         otherwise
             error('No dimension of the image')
     end    
@@ -38,11 +38,11 @@ end
 if remainder > 0
     switch dimension
         case 1
-            split_im{end} = im(denominator*parts:denominator*parts+remainder,:,:);
+            split_im{end} = im(divider*parts:divider*parts+remainder,:,:);
         case 2
-            split_im{end} = im(:,denominator*parts:denominator*parts+remainder,:);
+            split_im{end} = im(:,divider*parts:divider*parts+remainder,:);
         case 3
-            split_im{end} = im(:,:,denominator*parts:denominator*parts+remainder);
+            split_im{end} = im(:,:,divider*parts:divider*parts+remainder);
         otherwise
             error('No dimension of the image')
     end    
