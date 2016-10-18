@@ -8,6 +8,7 @@ for i=1:176
     imshow([squeeze(V_1(:,:,i)), squeeze(V_2(:,:,i));
             squeeze(V_3(:,:,i)), squeeze(V_4(:,:,i))],[]);
     pause(0.5)
+
 end
 
     
