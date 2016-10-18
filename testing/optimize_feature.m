@@ -1,24 +1,27 @@
+diary;
+samples = [];
 
 % test feature
-%training_samples = load_training_samples();
-%targets = load_targets();
-z = zeros(60,90);
-p = 0;
-for limit1=680:5:720
-    limit1
-    for limit2=810:5:850
-        X = [];
-        for i=1:80
-            x = feature_extract(training_samples(:,:,:,i), limit1, limit2);
-            X = [X; x];
-        end
+fun = 'feature_extract3';
+intervals = 1:20;
 
-        b = pinv(X)*targets; 
-
-        z(limit1/5,limit2/5) = (X*b-targets)'*(X*b-targets);
-        p = p-1
-    end
-end
+% iterate through parameters and display results
+disp(strcat('STARTED OPTIMIZATION OF "', fun, '".')); 
+for i=intervals
+    % define parameter struct
+    parameters = struct('intervals', i);
     
-        
+    % train the model with the parameters and function
+    [model, X] = train_b('data/set_train', 'data/targets.csv', fun, p);
+    
+    % save sample in data structure
+    RMSE = [RMSE, struct('RMSE', model.RMSE, 'Parameters', parameters)];
+   
+    % display information
+    disp('------------------');
+    disp(strcat('Parameters: ',  num2str(p)));
+    disp(strcat('RMSE: ',  num2str(model.RMSE)));
+end
+
+
 

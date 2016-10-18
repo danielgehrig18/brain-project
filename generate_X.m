@@ -1,8 +1,7 @@
-function [ X ] = generate_X(folder, limit1, limit2)
+function [ X ] = generate_X(folder, fun, parameters)
 %GENERATE_X Generate the data matrix from data in folder. Parameters limit1
 %and limit2 are for the feature_extract function. 
 %Resulting X matrix is of size #data_points x (#features + 1)
-        
 files = dir(folder);
 
 % iterate through files in folder
@@ -23,10 +22,8 @@ for file = files'
     path_name = strcat(folder, '/', file_name);
     
     % extract features from file
-    
-    %x = feature_extract_cerebral_hemisphere(path_name, 1);
-    %x = feature_extract3(path_name, limit1, limit2);
-    x = feature_extract_intensity_limits_1(path_name, 290, 200);
+    f = str2func(fun);
+    x = f(path_name, parameters);
     X(file_number, :) = x;
 end
 end
