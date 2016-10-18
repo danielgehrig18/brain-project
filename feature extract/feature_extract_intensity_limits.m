@@ -1,4 +1,4 @@
-%function [ x ] = feature_extract_cerebral_hemisphere( path_name, threshold )
+%function [ x ] = feature_extract_intensity_limits( path_name, threshold )
 %FEATURE_EXTRACT_CEREBRAL_HEMISPHERE Summary of this function goes here
 %   Detailed explanation goes here
 clear all

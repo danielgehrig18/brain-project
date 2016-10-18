@@ -24,8 +24,8 @@ for file = files'
     
     % extract features from file
     %x = feature_extract_cerebral_hemisphere(path_name, 1);
-    x = feature_extract3(path_name, limit1, limit2);
-    X(file_number, :) = x;
+    %x = feature_extract3(path_name, limit1, limit2);
+    x = feature_extract_intensity_limits_1(path_name, 290, 200);
 end
 end
 
