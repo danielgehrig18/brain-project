@@ -1,25 +1,33 @@
-function [ x ] = feature_extract1( path_name )
+function [ x ] = feature_extract1( path_name, parameters )
 %FEATURE_EXTRACT Summary of this function goes here
 %   Detailed explanation goes here
 im = nii_read_volume(path_name); 
+[x,y,z] = size(im);
 
-x = [];
+% feature vector
+features = [];
 
-x_step = 43;
-y_step = 51;
-z_step = 43;
+% parameters
+x_segments = parameters.x_segments;
+y_segments = parameters.y_segments;
+z_segments = parameters.z_segments;
 
-x(1) = 1;
-index = 2;
+x_regions = floor(x/x_segments *(0:x_segments));
+y_regions = floor(y/y_segments *(0:y_segments));
+z_regions = floor(z/z_segments *(0:z_segments));
 
-for i = 1:x_step+1:176
-    for j=1:y_step+1:208
-        for k=1:z_step+1:176
-            chunk = im(i:i+x_step,j:j+y_step,k:k+z_step); %cut 3D brain image into cubes
-            a = mean(chunk(:)); %take mean intensity of cube
+for x_i = 1:x_segments
+    for y_i=1:y_segments
+        for z_i=1:z_segements
+            % cut out chunk from image
+            chunk = im(x_regions(x_i):x_regions(x_i + 1),...
+                       y_regions(y_i):y_regions(y_i + 1),...
+                       z_regions(z_i):z_regions(z_i + 1));
+            
+            % take mean of intensity in chunk       
+            m = mean(chunk(:)); 
             if a~=0
-                x(index)=a;     %extract mean intensity as feature
-                index = index + 1;
+                features = [features, a];
             end
         end
     end

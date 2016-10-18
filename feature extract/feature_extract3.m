@@ -6,14 +6,14 @@ function [ x ] = feature_extract3( path_name , parameters)
 % calculate fractions
 im = double(nii_read_volume(path_name)); 
 
-im = im*parameters/max(im(:));
+im = im*parameters.segments/max(im(:));
 
 x = zeros(1,parameters);
-for i=0:parameters-1
-    p_region = im<i+1;
-    m_region = im>i;
+for i=0 : parameters.segments - 1
+    p_region = im < i + 1;
+    m_region = im > i;
     
-    total = p_region.*m_region;
+    total = p_region .* m_region;
     
     x(i+1) = sum(total(:));
 end

@@ -22,11 +22,10 @@
             case 8
                 i = i-10
             otherwise
-                threshold = str2num(str);
-                continue;
+                threshold = (str);
         end
-        im = double([V_1(:,:,i), V_2(:,:,i);
-                 V_3(:,:,i), V_4(:,:,i)]);
+        im = double([V_1(i,:,:), V_2(i,:,:);
+                 V_3(i,:,:), V_4(i,:,:)]);
              
         im = uint8(im/max(im(:))*256);
         
