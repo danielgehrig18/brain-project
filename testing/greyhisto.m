@@ -25,8 +25,10 @@ greyVals = greyVals(:);
 % Get number of each grey value
 histo = zeros(maxGreyVal,1);
 for i = minGreyVal:1:maxGreyVal
-    idx = find(im == i);
-    histo(i) = length(idx);
+    idx = (im == i);
+    histo(i) = sum(idx(:));
+%     idx = find(im == i);
+%     histo(i) = length(idx);
 end
 
 end
