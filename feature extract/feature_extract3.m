@@ -8,7 +8,7 @@ im = double(nii_read_volume(path_name));
 
 im = im*parameters.segments/max(im(:));
 
-x = zeros(1,parameters);
+x = zeros(1,parameters.segments);
 for i=0 : parameters.segments - 1
     p_region = im < i + 1;
     m_region = im > i;
