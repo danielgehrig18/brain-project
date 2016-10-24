@@ -1,6 +1,15 @@
 % Grey intensity histogram evaluation
 clear
 
+
+% ------------------------------------------------------
+% Attention! 
+% dir does not give back the found files in the same order as
+% they are sorted in the set_train folder!
+% -> Either rearrange the listing array or take it into account
+% differently!
+% ------------------------------------------------------
+
 % Get nii files
 folder = '../data/set_train/';
 extension = '*.nii';

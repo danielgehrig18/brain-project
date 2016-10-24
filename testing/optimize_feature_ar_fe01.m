@@ -70,7 +70,7 @@ for h = x_segments
                 safe_bothRMSE(count,:) = [RMSE cvRMSE];
                 
                 % Go to safe_opt folder in data
-                cd('../data/safe_opt')
+                cd('../data/safe_opt1')
                 % Save obtained data
                 safe_name = char(strcat(num2str(h),num2str(p),num2str(k),'_',fun,'.mat'));
                 save(safe_name,'betas','X','RMSE','cvRMSE');

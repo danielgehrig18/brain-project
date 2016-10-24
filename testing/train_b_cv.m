@@ -8,7 +8,7 @@ function [ betas, X, RMSE, cvRMSE] = train_b_cv( x_folder, y_file, fun, paramete
 y = csvread(y_file);
 
 % generate #data_points x (#features+1) data matrix
-X = generate_X_optver(x_folder, fun, parameters, NoF);
+X = generate_X_optver(x_folder, fun, parameters, NoF,'train');
 
 % create linear model
 % model = LinearModel.fit(X, y, 'RobustOpts', 'off');

@@ -14,6 +14,7 @@ end
 % Find maximum and minimum grey value
 maxGreyVal = max(max(max(im,[],3),[],2),[],1);
 minGreyVal = min(min(min(im,[],3),[],2),[],1);
+% Omit extracranial matter
 if minGreyVal == 0
     minGreyVal = 1;
 end
@@ -30,6 +31,5 @@ for i = minGreyVal:1:maxGreyVal
 %     idx = find(im == i);
 %     histo(i) = length(idx);
 end
-
 end
 
