@@ -1,0 +1,482 @@
+STARTED OPTIMIZATION OF "feature_extract11".
+{Undefined function or variable 'feature_extract11'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('generate_X', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/generate_X.m', 26)" style="font-weight:bold">generate_X</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/generate_X.m',26,0)">line 26</a>)
+    x = f(path_name, parameters);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('train_b', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/train_b.m', 10)" style="font-weight:bold">train_b</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/train_b.m',10,0)">line 10</a>)
+X = generate_X(x_folder, fun, parameters);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('optimize_feature', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/testing/optimize_feature.m', 23)" style="font-weight:bold">optimize_feature</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/testing/optimize_feature.m',23,0)">line 23</a>)
+        [model, X] = train_b('data/set_train', 'data/targets.csv', fun, parameters);
+} 
+MEvent. CASE!
+MEvent. CASE!
+optimize_feature
+STARTED OPTIMIZATION OF "feature_extract11".
+------------------
+Parameters: 
+      bins: 2000
+    cutoff: 3
+      band: 1
+
+RMSE: 
+   12.3269
+
+R values: 
+    Ordinary: 0.7660
+    Adjusted: 0.7635
+
+Bayesian Information Criterion: 
+   2.2040e+03
+
+------------------
+Parameters: 
+      bins: 2000
+    cutoff: 3
+      band: 3
+
+RMSE: 
+   12.3371
+
+R values: 
+    Ordinary: 0.7657
+    Adjusted: 0.7631
+
+Bayesian Information Criterion: 
+   2.2044e+03
+
+------------------
+Parameters: 
+      bins: 2000
+    cutoff: 3
+      band: 5
+
+RMSE: 
+   12.3401
+
+R values: 
+    Ordinary: 0.7655
+    Adjusted: 0.7630
+
+Bayesian Information Criterion: 
+   2.2046e+03
+
+------------------
+Parameters: 
+      bins: 2000
+    cutoff: 3
+      band: 7
+
+RMSE: 
+   12.3765
+
+R values: 
+    Ordinary: 0.7642
+    Adjusted: 0.7616
+
+Bayesian Information Criterion: 
+   2.2062e+03
+
+[Warning: Regression design matrix is rank deficient to within machine precision.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('classreg.regr.CompactTermsRegression/checkDesignRank', '/usr/local/MATLAB/R2016b/toolbox/stats/classreg/+classreg/+regr/CompactTermsRegression.m', 35)" style="font-weight:bold">classreg.regr.CompactTermsRegression/checkDesignRank</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2016b/toolbox/stats/classreg/+classreg/+regr/CompactTermsRegression.m',35,0)">line 35</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LinearModel.fit', '/usr/local/MATLAB/R2016b/toolbox/stats/classreg/@LinearModel/LinearModel.m', 1215)" style="font-weight:bold">LinearModel.fit</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2016b/toolbox/stats/classreg/@LinearModel/LinearModel.m',1215,0)">line 1215</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('train_b', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/train_b.m', 17)" style="font-weight:bold">train_b</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/train_b.m',17,0)">line 17</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('optimize_feature', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/testing/optimize_feature.m', 25)" style="font-weight:bold">optimize_feature</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/testing/optimize_feature.m',25,0)">line 25</a>)] 
+------------------
+Parameters: 
+      bins: 2000
+    cutoff: 3
+      band: 9
+
+RMSE: 
+   12.6271
+
+R values: 
+    Ordinary: 0.7553
+    Adjusted: 0.7535
+
+Bayesian Information Criterion: 
+   2.2184e+03
+
+optimize_feature
+STARTED OPTIMIZATION OF "feature_extract11".
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 17
+    cutoff: 3
+      band: 1
+
+RMSE: 
+     0
+
+R values: 
+    Ordinary: 1
+    Adjusted: 1
+
+Bayesian Information Criterion: 
+  -Inf
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 17
+    cutoff: 3
+      band: 3
+
+RMSE: 
+   6.5182e-07
+
+R values: 
+    Ordinary: 1.0000
+    Adjusted: 1.0000
+
+Bayesian Information Criterion: 
+  -7.3900e+03
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('nii_read_volume', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/ReadData3D_version1k/nii/nii_read_volume.m', 31)" style="font-weight:bold">nii_read_volume</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/ReadData3D_version1k/nii/nii_read_volume.m',31,0)">line 31</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('feature_extract10', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/feature extract/feature_extract10.m', 4)" style="font-weight:bold">feature_extract10</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/feature extract/feature_extract10.m',4,0)">line 4</a>)
+im = nii_read_volume(path_name);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('feature_extract11', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/feature extract/feature_extract11.m', 5)" style="font-weight:bold">feature_extract11</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/feature extract/feature_extract11.m',5,0)">line 5</a>)
+histo = feature_extract10(path_name, parameters);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('generate_X', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/generate_X.m', 26)" style="font-weight:bold">generate_X</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/generate_X.m',26,0)">line 26</a>)
+    x = f(path_name, parameters);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('train_b', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/train_b.m', 10)" style="font-weight:bold">train_b</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/train_b.m',10,0)">line 10</a>)
+X = generate_X(x_folder, fun, parameters);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('optimize_feature', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/testing/optimize_feature.m', 27)" style="font-weight:bold">optimize_feature</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/testing/optimize_feature.m',27,0)">line 27</a>)
+        [model, X] = train_b('data/set_train', 'data/targets.csv', fun, parameters);
+} 
+optimize_feature
+STARTED OPTIMIZATION OF "feature_extract11".
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 17
+    cutoff: 2
+      band: 1
+
+RMSE: 
+   12.0407
+
+R values: 
+    Ordinary: 0.7760
+    Adjusted: 0.7743
+
+Bayesian Information Criterion: 
+   2.1863e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 17
+    cutoff: 2
+      band: 3
+
+RMSE: 
+   12.0407
+
+R values: 
+    Ordinary: 0.7760
+    Adjusted: 0.7743
+
+Bayesian Information Criterion: 
+   2.1863e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 17
+    cutoff: 2
+      band: 5
+
+RMSE: 
+   12.0407
+
+R values: 
+    Ordinary: 0.7760
+    Adjusted: 0.7743
+
+Bayesian Information Criterion: 
+   2.1863e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 17
+    cutoff: 2
+      band: 7
+
+RMSE: 
+   12.0407
+
+R values: 
+    Ordinary: 0.7760
+    Adjusted: 0.7743
+
+Bayesian Information Criterion: 
+   2.1863e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 17
+    cutoff: 2
+      band: 9
+
+RMSE: 
+   12.0407
+
+R values: 
+    Ordinary: 0.7760
+    Adjusted: 0.7743
+
+Bayesian Information Criterion: 
+   2.1863e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 18
+    cutoff: 2
+      band: 1
+
+RMSE: 
+   12.0835
+
+R values: 
+    Ordinary: 0.7744
+    Adjusted: 0.7727
+
+Bayesian Information Criterion: 
+   2.1883e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 18
+    cutoff: 2
+      band: 3
+
+RMSE: 
+   12.0835
+
+R values: 
+    Ordinary: 0.7744
+    Adjusted: 0.7727
+
+Bayesian Information Criterion: 
+   2.1883e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 18
+    cutoff: 2
+      band: 5
+
+RMSE: 
+   12.0835
+
+R values: 
+    Ordinary: 0.7744
+    Adjusted: 0.7727
+
+Bayesian Information Criterion: 
+   2.1883e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 18
+    cutoff: 2
+      band: 7
+
+RMSE: 
+   12.0835
+
+R values: 
+    Ordinary: 0.7744
+    Adjusted: 0.7727
+
+Bayesian Information Criterion: 
+   2.1883e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 18
+    cutoff: 2
+      band: 9
+
+RMSE: 
+   12.0835
+
+R values: 
+    Ordinary: 0.7744
+    Adjusted: 0.7727
+
+Bayesian Information Criterion: 
+   2.1883e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 19
+    cutoff: 2
+      band: 1
+
+RMSE: 
+   12.1180
+
+R values: 
+    Ordinary: 0.7731
+    Adjusted: 0.7714
+
+Bayesian Information Criterion: 
+   2.1898e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 19
+    cutoff: 2
+      band: 3
+
+RMSE: 
+   12.1180
+
+R values: 
+    Ordinary: 0.7731
+    Adjusted: 0.7714
+
+Bayesian Information Criterion: 
+   2.1898e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 19
+    cutoff: 2
+      band: 5
+
+RMSE: 
+   12.1180
+
+R values: 
+    Ordinary: 0.7731
+    Adjusted: 0.7714
+
+Bayesian Information Criterion: 
+   2.1898e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 19
+    cutoff: 2
+      band: 7
+
+RMSE: 
+   12.1180
+
+R values: 
+    Ordinary: 0.7731
+    Adjusted: 0.7714
+
+Bayesian Information Criterion: 
+   2.1898e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 19
+    cutoff: 2
+      band: 9
+
+RMSE: 
+   12.1180
+
+R values: 
+    Ordinary: 0.7731
+    Adjusted: 0.7714
+
+Bayesian Information Criterion: 
+   2.1898e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 20
+    cutoff: 2
+      band: 1
+
+RMSE: 
+   12.1503
+
+R values: 
+    Ordinary: 0.7719
+    Adjusted: 0.7702
+
+Bayesian Information Criterion: 
+   2.1913e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 20
+    cutoff: 2
+      band: 3
+
+RMSE: 
+   12.1503
+
+R values: 
+    Ordinary: 0.7719
+    Adjusted: 0.7702
+
+Bayesian Information Criterion: 
+   2.1913e+03
+
+------------------
+Parameters: 
+      bins: 2000
+     peak1: 20
+    cutoff: 2
+      band: 5
+
+RMSE: 
+   12.1503
+
+R values: 
+    Ordinary: 0.7719
+    Adjusted: 0.7702
+
+Bayesian Information Criterion: 
+   2.1913e+03
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('nii_read_volume', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/ReadData3D_version1k/nii/nii_read_volume.m', 45)" style="font-weight:bold">nii_read_volume</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/ReadData3D_version1k/nii/nii_read_volume.m',45,0)">line 45</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('feature_extract10', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/feature extract/feature_extract10.m', 4)" style="font-weight:bold">feature_extract10</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/feature extract/feature_extract10.m',4,0)">line 4</a>)
+im = nii_read_volume(path_name);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('feature_extract11', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/feature extract/feature_extract11.m', 5)" style="font-weight:bold">feature_extract11</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/feature extract/feature_extract11.m',5,0)">line 5</a>)
+histo = feature_extract10(path_name, parameters);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('generate_X', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/generate_X.m', 26)" style="font-weight:bold">generate_X</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/generate_X.m',26,0)">line 26</a>)
+    x = f(path_name, parameters);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('train_b', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/train_b.m', 10)" style="font-weight:bold">train_b</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/train_b.m',10,0)">line 10</a>)
+X = generate_X(x_folder, fun, parameters);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('optimize_feature', '/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/testing/optimize_feature.m', 27)" style="font-weight:bold">optimize_feature</a> (<a href="matlab: opentoline('/home/dani/Documents/MATLAB/ETH/1.Semester/Machine Learning/Brain Project/brain-project/testing/optimize_feature.m',27,0)">line 27</a>)
+        [model, X] = train_b('data/set_train', 'data/targets.csv', fun, parameters);
+} 
+optimize_feature

@@ -5,5 +5,5 @@ im = nii_read_volume(path_name);
 
 [x,y,z] = size(im);
 
-h = histogram(reshape(im, x,y*z), 1:5000 );
-x = h.Values;
+x = histcounts(reshape(im, x,y*z), 1:5000 );
+end
