@@ -3,8 +3,11 @@
 % Load certain histograms into workspace
 folder = '../data/greyhisto_train/';
 % Which histograms are loaded (Number)
-ages = {'20','20','50','50','87','89','89','90','96','94'};
-loadHistogram = [124 129 214 217 31 99 89 118 168 114];
+
+% 
+
+ages = {'20','21','40','41','65','60','85','82','87','93'};
+loadHistogram = [1 20 53 62 78 92 143 144 149 160];
 
 % ages = {'87','89','89','90','96','94'};
 % loadHistogram = [31 99 89 118 168 114];
