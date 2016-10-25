@@ -3,12 +3,14 @@ function [ x ] = feature_extract11( path_name, parameters )
 %   Detailed explanation goes here
 
 histo = feature_extract10(path_name, parameters);
-segm = histo(30:73);
-[max_val, max_id] = max(segm);
+segm = histo(400:1100);
+[x, max_id] = max(segm);
 
-high = max_id + parameters.band;
-low = max_id - parameters.band;
+up = max_id + parameters.up;
+down = max_id - parameters.down;
 
-x = [sum(segm(low:high))];
+x = sum(segm(down:up));
+
+x = [x];
 end
 
