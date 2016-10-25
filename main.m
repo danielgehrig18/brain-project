@@ -8,8 +8,9 @@ addpath('feature extract', 'preprocess','ReadData3D_version1k/nii');
 
 %% choose function1 and its parameters
 fun1 = 'feature_extract10';
-parameters1 = struct('cutoff', 4, ...
-                    'bins', 2000);
+parameters1 = struct('cutoff', 1, ...
+                    'bins', 2000, ...
+                    'band', 1);
 [model1, X1, c1] = train_b('data/set_train', 'data/targets.csv', fun1, parameters1);                    
                 
 
