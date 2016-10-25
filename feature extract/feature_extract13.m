@@ -5,5 +5,5 @@ function [ x ] = feature_extract13( path_name, parameters )
 %               offset = width of slope measurement (+- from centerpoint)
 %
 histo = feature_extract10(path_name, parameters);
-x =((histo(parameters.centerpoint + offset) - histo(parameters.centerpoint - offset)) / (offset*2));  %to be optimized ~10-30
+x = ((histo(parameters.centerpoint + parameters.offset) - histo(parameters.centerpoint - parameters.offset)) / (parameters.offset*2));  %to be optimized ~10-30
 end
