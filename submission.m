@@ -1,4 +1,4 @@
-function [y_hat] = submission( folder, file, model,  fun, parameters)
+function [y_hat] = submission( folder, file, model,  fun, parameters, c)
 %   SUBMISSION Calculates the expected target values with b for test data and
 %   writes it into file
 
@@ -9,6 +9,9 @@ coefficients = coefficient_info(:,1);
 % generate test data matrix. Has dimensions 
 % #test_data_points x (#features + 1)
 X = generate_X(folder, fun, parameters);
+
+x_new = X*c(1:end-1,:);
+X = x_new(:,1:parameters.cutoff);
 
 % calculate the test targets
 y_hat = X * coefficients(2:end,:) + coefficients(1); 
@@ -30,5 +33,5 @@ submit = [submit; num2cell(data_matrix)];
 % write matrix to csv file
 cell2csv(file,submit);
 
-%end
+end
 

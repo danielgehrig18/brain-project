@@ -19,5 +19,5 @@ disp('Training finished successfully!');
 
 disp('Creating submission file using Data: data/set_test and Targets: data/submit.csv ...');
 % submit target values for test set 
-submission('data/set_test', 'data/submit.csv', {model1}, {fun1}, {parameters1}, c1);
+submission('data/set_test', 'data/submit.csv', model1, fun1, parameters1, c1);
 disp('Submission file created successfully!');
