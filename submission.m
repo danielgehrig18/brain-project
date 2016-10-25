@@ -14,20 +14,21 @@ X = generate_X(folder, fun, parameters);
 y_hat = X * coefficients(2:end,:) + coefficients(1); 
 
 % writes calculated values into file.
-y_length = length(y);
+y_length = length(y_hat);
 
-data_matrix = ([(2:y_length+1)',y]);
-data_matrix(1,1) = 'ID';
-data_matrix(1,2) = 'Prediction';
+data_matrix = ([(1:y_length)',y_hat]);
 % check if there is already a file with name 'submit.csv', if so delete it
+
 if exist(file, 'file') == 2
     delete(file);
 end
 
-% write matrix to csv file
-cell2csv(file,data_matrix);
-% csvwrite(file,header);
-% dlmwrite(file,data_matrix,'delimiter',',','-append');
+% data = num2cell(data_matrix);
+submit = {'ID', 'Prediction'};
+submit = [submit; num2cell(data_matrix)];
 
-end
+% write matrix to csv file
+cell2csv(file,submit);
+
+%end
 
