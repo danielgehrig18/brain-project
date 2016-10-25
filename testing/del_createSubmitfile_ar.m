@@ -6,7 +6,7 @@ clc
 addpath('../feature extract', '../preprocess','../ReadData3D_version1k/nii','../data');
 
 % Load betas and parameters
-load('../data/safe_opt4/Struct_getCSF_Tissue_03.mat')
+load('../data/safe_opt4/Struct_getCSF_Tissue_03norm.mat')
 
 % Showed good RMSE and cvRMSE
 n = 7379;   % Improved score

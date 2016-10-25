@@ -11,7 +11,6 @@ loadHistogram = [1 20 53 62 78 92 143 144 149 160];
 
 % ages = {'87','89','89','90','96','94'};
 % loadHistogram = [31 99 89 118 168 114];
-
 % Handle cell
 H = cell(1,length(loadHistogram));
 count = 0;

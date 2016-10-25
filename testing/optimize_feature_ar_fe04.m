@@ -116,9 +116,10 @@ parfor i = 1:NumOfLoops
                 % generate_X_optver
                 NoF = 3;    % Number of regions
                 % Train model
-                % Attention: Changed to _v2 !! ---------------------
+                % Attention: Changed to _v2 not !! ------------
+                % get_CSF_Tissue_v03 -> normalized
                 
-                [betas,X,RMSE,cvRMSE] = train_b_cv_v2(greyHisto,y_file,fun,parameters,NoF);
+                [betas,X,RMSE,cvRMSE] = train_b_cv(greyHisto,y_file,fun,parameters,NoF);
                 
                 Save_X{1,i} = X;
                 Save_b{1,i} = betas;
@@ -145,7 +146,7 @@ disp(['The generation took ' num2str(elapsedTimeh) ' hours or ' num2str(elapsedT
 
 % Go to safe_opt folder in data
 cd('../data/safe_opt4')
-save('Struct_getCSF_Tissue_03avg.mat','diaryname','Limits_cell','Save_X','Save_b','Save_RMSE','Save_cvRMSE');
+save('Struct_getCSF_Tissue_03norm_avg.mat','diaryname','Limits_cell','Save_X','Save_b','Save_RMSE','Save_cvRMSE');
 % Go back to testing folder
 cd('../../testing')
 

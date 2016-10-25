@@ -27,6 +27,6 @@ ventricle = GH(idx3);
 
 % calculate fractions
 weights = [sum(white(:)),sum(grey(:)),sum(ventricle(:))];
-% weights = weights/sum(weights(:));
+weights = weights/sum(GH(:));
 end
 
