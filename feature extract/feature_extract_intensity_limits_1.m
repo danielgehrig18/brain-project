@@ -8,13 +8,7 @@ disp(['Started feature extraction "intensity limits" (' num2str(threshold) '/' n
 % optimalthreshold = 0;
 % optimallimits = 0;
 % for threshold = 10:10:1500
-%     for limits = 5:5:400
-x = 0;
-% X = zeros(1,278);       %Greymatter vector
-% threshold = 730;    % 0 to 1524 
-% limits = 100;
 
-% for i=1:278
 %     path_name = ['data/set_train/train_'  num2str(i) '.nii'];
     im = nii_read_volume(path_name);
 %     imx = im;

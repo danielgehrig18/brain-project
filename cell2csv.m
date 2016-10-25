@@ -1,5 +1,3 @@
-cell2csv(filename,A)
-
 function cell2csv(filename,cellArray,delimiter)
 % Writes cell array content into a *.csv file.
 % 
@@ -35,6 +33,6 @@ for z=1:size(cellArray,1)
             fprintf(datei,[delimiter]);
         end
     end
-    fprintf(datei,'\n');
+    fprintf(datei,'\r\n');
 end
 fclose(datei);
