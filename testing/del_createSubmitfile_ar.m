@@ -1,28 +1,9 @@
 % Create csv submit file
-clear
-clc
+% clear
+% clc
 
 % Add path
 addpath('../feature extract', '../preprocess','../ReadData3D_version1k/nii','../data');
-
-% Load betas and parameters
-load('../data/safe_opt4/Struct_getCSF_Tissue_03norm.mat')
-
-% Showed good RMSE and cvRMSE
-n = 7379;   % Improved score
-% n = 27292;
-
-cg1 = Limits_cell{n}(1);
-ra1 = Limits_cell{n}(2);
-cg2 = Limits_cell{n}(3);
-ra2 = Limits_cell{n}(4);
-cg3 = Limits_cell{n}(5);
-ra3 = Limits_cell{n}(6);
-                
-parameters = struct('cgone',cg1,'rangeone',ra1,'cgtwo',cg2,'rangetwo',ra2,...
-                  'cgthree',cg3,'rangethree',ra3);
-
-betas = Save_b{n};
 
 % Load grey histograms
 % Folder
@@ -59,14 +40,36 @@ end
 
 disp('Grey histograms loaded successfully')
 
+% Load betas and parameters
+% load('../data/safe_opt4/Struct_getCSF_Tissue_03cubic.mat')
+
+% Showed good RMSE and cvRMSE
+% n = 7379;   % Improved score, no norm, only linear
+% n = 27292;
+% n = 28322; % quad norm, also for not normalized
+n = 47988; % cubic, no norm, super duper, however could be little overfitting the test data
+% n = 88924; % cubic, with norm
+
+cg1 = Limits_cell{n}(1);
+ra1 = Limits_cell{n}(2);
+cg2 = Limits_cell{n}(3);
+ra2 = Limits_cell{n}(4);
+cg3 = Limits_cell{n}(5);
+ra3 = Limits_cell{n}(6);
+                
+parameters = struct('cgone',cg1,'rangeone',ra1,'cgtwo',cg2,'rangetwo',ra2,...
+                  'cgthree',cg3,'rangethree',ra3);
+
+betas = Save_b{n};
+
 % Generate X_test values        
 fun = 'getCSF_Tissue_03';
 NoF = 3;
 
 Xtest = generate_X_optver(greyHisto,fun,parameters,NoF,'test');
 
-% Compute age estimates
-y_hat = [ones(138,1) Xtest]*betas;
+% Compute age estimates, quadratic and linear terms currently
+y_hat = [ones(138,1) Xtest Xtest.^2 Xtest.^3]*betas;
 
 % Create submission file
 % check if there is already a file with name 'submit.csv', if so delete it

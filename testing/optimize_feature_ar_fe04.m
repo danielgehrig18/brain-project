@@ -116,8 +116,9 @@ parfor i = 1:NumOfLoops
                 % generate_X_optver
                 NoF = 3;    % Number of regions
                 % Train model
-                % Attention: Changed to _v2 not !! ------------
+                % Attention: Changed to !! ------------
                 % get_CSF_Tissue_v03 -> normalized
+                % quadratic and cubic terms allowed (in train_b_cv)
                 
                 [betas,X,RMSE,cvRMSE] = train_b_cv(greyHisto,y_file,fun,parameters,NoF);
                 
@@ -143,14 +144,25 @@ elapsedTimeh = elapsedTime/3600;
 
 disp(['The generation took ' num2str(elapsedTimeh) ' hours or ' num2str(elapsedTime) ...
     ' seconds.']);
+diary off
+
 
 % Go to safe_opt folder in data
 cd('../data/safe_opt4')
-save('Struct_getCSF_Tissue_03norm_avg.mat','diaryname','Limits_cell','Save_X','Save_b','Save_RMSE','Save_cvRMSE');
+save('Struct_getCSF_Tissue_03norm_cubic.mat','diaryname','Limits_cell','Save_X','Save_b','Save_RMSE','Save_cvRMSE');
 % Go back to testing folder
 cd('../../testing')
 
-diary off
+% diary off
+
+% Print best result
+S = Save_RMSE;
+S1 = Save_cvRMSE;
+
+[m,i] = min(S);
+disp(['Minimum of RMSE: ' num2str(m) ', at ' num2str(i) ' and an cvRMSE of: ' num2str(S1(i)) '.'])
+
+idx1 = find(S < 7.9 & S1<7.9 & S < S1);
 
 
 
