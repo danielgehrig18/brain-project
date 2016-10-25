@@ -1,8 +1,8 @@
-function [ x ] = feature_extract_intensity_limits_1( path_name, threshold, limits )
+function [ x ] = feature_extract_intensity_limits_1( path_name, parameters)%threshold, limits )
 %FEATURE_EXTRACT_GREY_MATTER Summary of this function goes here
 %   Detailed explanation goes here
 
-disp(['Started feature extraction "intensity limits" (' num2str(threshold) '/' num2str(limits) ') using dataset: ' path_name]);
+%disp(['Started feature extraction "intensity limits" (' num2str(threshold) '/' num2str(limits) ') using dataset: ' path_name]);
 
 % smallesterror = 9999999999999999;
 % optimalthreshold = 0;
@@ -14,26 +14,32 @@ disp(['Started feature extraction "intensity limits" (' num2str(threshold) '/' n
 %     imx = im;
     sz = size(im);
     
-
+    a = im < parameters.threshold+parameters.limits;
+    b = im > parameters.threshold-parameters.limits;
     
-    %find mean intensities of images and a total mean
-        for z=1:sz(3)   %area between top of brain and ventricles
-%             meanintensity = 0;
-            for y=1:sz(2)
-%                 pixels = 0;
-%                 intensity = 0;
-                for x_=1:sz(1)     
-                    if (im(x_,y,z) > (threshold-limits) && im(x_,y,z) < (threshold+limits))
-                         x = x + 1;
-%                         imx(x,y,z) = 0;
-                    end
-                end
-            end
-%         imshow([squeeze(imresize(im(:,:,z),2)),squeeze(imresize(imx(:,:,z),2))],[]);  
-%         if (z == 125)
-%             f = input('Press any key to continue');
+    c = a.*b;
+    
+    x = sum(c(:));
+    x = [x, x^2, x^3];
+    
+%     %find mean intensities of images and a total mean
+%         for z=1:sz(3)   %area between top of brain and ventricles
+% %             meanintensity = 0;
+%             for y=1:sz(2)
+% %                 pixels = 0;
+% %                 intensity = 0;
+%                 for x_=1:sz(1)     
+%                     if (im(x_,y,z) > (parameters.threshold-parameters.limits) && im(x_,y,z) < (parameters.threshold+parameters.limits))
+%                          x = x + 1;
+% %                         imx(x,y,z) = 0;
+%                     end
+%                 end
+%             end
+% %         imshow([squeeze(imresize(im(:,:,z),2)),squeeze(imresize(imx(:,:,z),2))],[]);  
+% %         if (z == 125)
+% %             f = input('Press any key to continue');
+% %         end
 %         end
-        end
 % end
 
 % Y = csvread('data/targets.csv');
