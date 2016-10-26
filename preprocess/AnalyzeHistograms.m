@@ -8,6 +8,7 @@ folder = '../data/greyhisto_train/';
 
 ages = {'20','21','40','41','65','60','85','82','87','93'};
 loadHistogram = [1 20 53 62 78 92 143 144 149 160];
+% loadHistogram = 2;
 
 % ages = {'87','89','89','90','96','94'};
 % loadHistogram = [31 99 89 118 168 114];
@@ -20,6 +21,8 @@ for i = loadHistogram
     H{count} = temp_GH;
 end
 
+% H2 = feature_extract10('../data/set_train/train_2.nii',5000);
+
 %%
 % Scale grey values w.r.t. the largest grey value of all loaded images
 % Find largest grey value
@@ -30,6 +33,7 @@ for i = 1:length(loadHistogram)
     end
 end
 
+xH2 = 1:length(H2);
 
 % plot
 close
@@ -38,6 +42,7 @@ for i = 1:length(loadHistogram)
     plot(H{i})
     hold on
 end
+% plot(xH2+10,H2)
 legend(ages)
 xlabel('Grey values')
 ylabel('Quantity')
