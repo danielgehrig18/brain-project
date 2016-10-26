@@ -13,7 +13,7 @@ X = generate_X(folder, fun, parameters);
 % calculate the test targets
 y_hat = X * coefficients(2:end,:) + coefficients(1); 
 
-% writes calculated values into file.
+%% writes calculated values into file.
 y_length = length(y_hat);
 
 data_matrix = ([(1:y_length)',y_hat]);
