@@ -57,8 +57,8 @@ folder = '../data/greyhisto_train/';
 y_file = '../data/targets.csv';
 
 % Create save arrays
-Save_X = cell(1,NumOfLoops);
-Save_b = Save_X;
+% Save_X = cell(1,NumOfLoops);
+% Save_b = Save_X;
 Save_RMSE = zeros(1,NumOfLoops);
 Save_cvRMSE = Save_RMSE;
 
@@ -122,8 +122,8 @@ parfor i = 1:NumOfLoops
                 
                 [betas,X,RMSE,cvRMSE] = train_b_cv(greyHisto,y_file,fun,parameters,NoF);
                 
-                Save_X{1,i} = X;
-                Save_b{1,i} = betas;
+%                 Save_X{1,i} = X;
+%                 Save_b{1,i} = betas;
                 Save_RMSE(1,i) = RMSE;
                 Save_cvRMSE(1,i) = cvRMSE;
 
@@ -144,16 +144,21 @@ elapsedTimeh = elapsedTime/3600;
 
 disp(['The generation took ' num2str(elapsedTimeh) ' hours or ' num2str(elapsedTime) ...
     ' seconds.']);
-diary off
+% diary off
 
 
 % Go to safe_opt folder in data
 cd('../data/safe_opt4')
-save('Struct_getCSF_Tissue_03norm_cubic.mat','diaryname','Limits_cell','Save_X','Save_b','Save_RMSE','Save_cvRMSE');
+% save('Struct_getCSF_Tissue_03cubic_run4.mat','diaryname',...
+%     'Limits_cell','Save_X','Save_b','Save_RMSE','Save_cvRMSE');
+
+% New: Features and Model is not saved (use less memory)
+save('Struct_getCSF_Tissue_03cubic_run4.mat','diaryname',...
+    'Limits_cell','Save_RMSE','Save_cvRMSE');
 % Go back to testing folder
 cd('../../testing')
 
-% diary off
+diary off
 
 % Print best result
 S = Save_RMSE;
