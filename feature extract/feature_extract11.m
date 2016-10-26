@@ -3,7 +3,7 @@ function [ x ] = feature_extract11( path_name, parameters )
 %   Detailed explanation goes here
 
 histo = feature_extract10(path_name, parameters);
-segm = histo(400:1100);
+segm = histo(100:4000);
 [~, max_id] = max(segm);
 
 up = max_id + parameters.up;
