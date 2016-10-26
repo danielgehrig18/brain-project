@@ -5,5 +5,5 @@ im = nii_read_volume(path_name);
 
 [x,y,z] = size(im);
 
-h = imhist(reshape(im, x,y*z), 2*parameters.bins);
-x = h(parameters.bins+2:end);
+x = histcounts(reshape(im, x,y*z), 1:5000 );
+end

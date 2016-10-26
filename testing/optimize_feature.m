@@ -3,19 +3,21 @@ samples = [];
 hold on;
 
 % test feature
-fun = 'feature_extract10';
-cutoff = 4;
-bins = 50:50:2000;
+fun = 'feature_extract11';
+cutoff = 1;
+bins = 2000;
+band = 1:2:15;
 
 RMSE = [];
 y = [];
 % iterate through parameters and display results
 disp(strcat('STARTED OPTIMIZATION OF "', fun, '".')); 
-for g=cutoff
-    for h=bins
+for g=bins
+    for h=band
         % define parameter struct
-        parameters = struct('bins', h, ...
-                            'cutoff', g);
+        parameters = struct('bins', g, ...
+                            'cutoff', cutoff,...
+                            'band', h);
 
         % train the model with the parameters and function
         [model, X] = train_b('data/set_train', 'data/targets.csv', fun, parameters);
