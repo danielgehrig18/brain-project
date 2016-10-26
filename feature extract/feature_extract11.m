@@ -10,5 +10,7 @@ up = max_id + parameters.up;
 down = max_id - parameters.down;
 
 x = sum(segm(down:up));
+x = [x, max_id];
+
 end
 
