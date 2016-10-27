@@ -33,7 +33,7 @@ for i = 1:length(loadHistogram)
     end
 end
 
-xH2 = 1:length(H2);
+% xH2 = 1:length(H2);
 
 % plot
 close

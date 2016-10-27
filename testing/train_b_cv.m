@@ -9,9 +9,12 @@ y = csvread(y_file);
 
 % generate #data_points x (#features+1) data matrix
 X = generate_X_optver(x_folder, fun, parameters, NoF,'train');
+% Test feature_extract_3peaks_v1
+% X = generate_X(x_folder,fun,parameters);
 
 % Allow quadratic and cubic terms
 X = [X X.^2 X.^3];
+% X = [X X(:,2).^2 X(:,2).^3];
 
 % create linear model
 % model = LinearModel.fit(X, y, 'RobustOpts', 'off');
