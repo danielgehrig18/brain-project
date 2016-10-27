@@ -10,23 +10,23 @@ ra1 = parameters.rangeone;
 ra2 = parameters.rangetwo;
 ra3 = parameters.rangethree;
 
-% Third peak
-idx1 = (cg1-ra1):(cg1+ra1);
+% First peak
+if (cg1-ra1) < 1
+    idx1 = 1:(cg1+ra1);
+else
+    idx1 = (cg1-ra1):(cg1+ra1);
+end
 % Second peak
 idx2 = (cg2-ra2):(cg2+ra2);
-% First peak
-if (cg3-ra3) < 1
-    idx3 = 1:(cg3+ra3);
-else
-    idx3 = (cg3-ra3):(cg3+ra3);
-end
+% Third peak
+idx3 = (cg3-ra3):(cg3+ra3);
 
-white = GH(idx1);
+ventricle = GH(idx1);
 grey = GH(idx2);
-ventricle = GH(idx3);
+white = GH(idx3);
 
 % calculate fractions
-weights = [sum(white(:)),sum(grey(:)),sum(ventricle(:))];
+weights = [sum(ventricle(:)),sum(grey(:)),sum(white(:))];
 % weights = weights/sum(GH(:));
 end
 
