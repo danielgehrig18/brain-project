@@ -4,6 +4,14 @@ function [ weights ] = feature_extract_3peaks( path_name , parameters)
 
 % Create grey value histogram (second input argument is not used, only a
 % placeholder)
+
+% best parameters through optimization:
+%       cgone: 220
+%       cgtwo: 50
+%       cgthree: 750
+%       rangeone: 35
+%       rangetwo: 1450
+%       rangethree: 110
 GH = feature_extract10(path_name,5000);
 
 % Extract parameters
