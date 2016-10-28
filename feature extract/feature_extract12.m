@@ -9,6 +9,5 @@ x=0;
 for tar=(parameters.target-20):(parameters.target+20)
     x = x + histo(tar);                    %to be optimized 
 end
-
 end
 

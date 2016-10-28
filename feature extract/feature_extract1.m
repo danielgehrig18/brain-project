@@ -5,7 +5,6 @@ im = nii_read_volume(path_name);
 [x,y,z] = size(im);
 
 % feature vector
-features = [];
 
 % parameters
 x_segments = parameters.x_segments;
@@ -16,19 +15,19 @@ x_regions = floor(x/x_segments *(0:x_segments));
 y_regions = floor(y/y_segments *(0:y_segments));
 z_regions = floor(z/z_segments *(0:z_segments));
 
+
+x = [];
+
 for x_i = 1:x_segments
     for y_i=1:y_segments
-        for z_i=1:z_segements
+        for z_i=1:z_segments
             % cut out chunk from image
-            chunk = im(x_regions(x_i):x_regions(x_i + 1),...
-                       y_regions(y_i):y_regions(y_i + 1),...
-                       z_regions(z_i):z_regions(z_i + 1));
+            chunk = im(x_regions(x_i)+1:x_regions(x_i + 1),...
+                       y_regions(y_i)+1:y_regions(y_i + 1),...
+                       z_regions(z_i)+1:z_regions(z_i + 1));
             
             % take mean of intensity in chunk       
-            m = mean(chunk(:)); 
-            if a~=0
-                features = [features, a];
-            end
+            x = [x,mean(chunk(:))]; 
         end
     end
 end

@@ -9,5 +9,9 @@ function [ x ] = feature_extract13( path_name, parameters )
 %   somehow)
 
 histo = feature_extract10(path_name, parameters);
-x = ((histo(parameters.centerpoint + parameters.offset) - histo(parameters.centerpoint - parameters.offset)) / (parameters.offset*2));  %to be optimized ~10-30
+
+offset = parameters.offset;
+centerpoint = parameters.centerpoint;
+
+x = ((histo(centerpoint + offset) - histo(centerpoint - offset)) / (offset*2));  %to be optimized ~130-400
 end
