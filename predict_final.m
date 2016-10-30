@@ -5,7 +5,7 @@
 % generated as 'data/submit.csv'.
 
 % add relevant folder to path
-addpath('feature extract', 'preprocess','ReadData3D_version1k/nii');
+addpath('feature extract', 'Source','ReadData3D_version1k/nii');
 
 %% choose function and its parameters
 fun = 'feature_extract_3peaks';
