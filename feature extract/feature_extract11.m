@@ -10,7 +10,7 @@ segm = histo(500:1200);
 up = max_id + parameters.up;
 down = max_id - parameters.down;
 
-x = [max(segm), max_id];
+x = [max(segm), max_id, sum(histo(:))];
 
 end
 

@@ -2,6 +2,15 @@ function [y_hat] = submission( folder, file, model,  fun, parameters)
 %   SUBMISSION Calculates the expected target values with b for test data and
 %   writes it into file
 
+%   Args:   folder:     folder with all the test data for X
+%           file:       file path where the submission file is written
+%           model:      model containing the parameters to construct the predictions with the test data matrix. 
+%           fun:        function to be used for the feature extraction
+%           parameters: struct containing all relevant arguments to execute
+%                       fun
+%
+%   Return: y_hat:     predicted y values 
+
 % extract coefficients
 coefficient_info = table2array(model.Coefficients);
 coefficients = coefficient_info(:,1);
@@ -13,7 +22,7 @@ X = generate_X(folder, fun, parameters);
 % calculate the test targets
 y_hat = X * coefficients(2:end,:) + coefficients(1); 
 
-%% writes calculated values into file.
+% writes calculated values into file.
 y_length = length(y_hat);
 
 data_matrix = ([(1:y_length)',y_hat]);

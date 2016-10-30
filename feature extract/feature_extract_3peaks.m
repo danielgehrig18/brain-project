@@ -13,6 +13,7 @@ function [ weights ] = feature_extract_3peaks( path_name , parameters)
 %       rangetwo: 50
 %       rangethree: 110
 GH = feature_extract10(path_name,parameters);
+GH = GH/sum(GH(:));
 
 % Extract parameters
 cg1 = parameters.cgone;

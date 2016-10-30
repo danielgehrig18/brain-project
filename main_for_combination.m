@@ -92,10 +92,10 @@
             ]
     model4.RMSE
     
-    
+    %%
     Y = csvread('data/targets.csv');
     Mdl = fitrensemble(X,Y,'OptimizeHyperparameters','auto',...
     'HyperparameterOptimizationOptions',struct('AcquisitionFunctionName',...
-    'expected-improvement-plus'));
+    'expected-improvement-plus', 'Kfold',10));
     yPredict = predict(Mdl, X);
     norm(Y-yPredict) / sqrt(278)
