@@ -11,33 +11,14 @@ addpath('../feature extract', '../preprocess','../ReadData3D_version1k/nii','../
 % test feature
 fun = 'getCSF_Tissue_03';
 % paramteres of fun
-% % First optimization
-% cgones = 180:20:260;
-% cgtwos = 700:50:900;
-% cgthrees = 1300:50:1500;
-% % Oneside-range (full range = 2* oneside-range)
-% raones = 10:10:70;
-% ratwos = 10:25:210;
-% rathrees = 10:25:310;
-
-
-% Optimization part 2
-cgones = 225:25:300;
-cgtwos = 700:20:800;
-cgthrees = 1400:25:1500;
+% First optimization
+cgones = 180:20:260;
+cgtwos = 700:50:900;
+cgthrees = 1300:50:1500;
 % Oneside-range (full range = 2* oneside-range)
-raones = 60:10:100;
-ratwos = 5:5:25;
-rathrees = 110:20:150;
-
-% Optimization part 3
-% cgones = 1;
-% cgtwos = 600:10:900;
-% cgthrees = 1;
-% % Oneside-range (full range = 2* oneside-range)
-% raones = 1;
-% ratwos = 5:5:500;
-% rathrees = 1;
+raones = 10:10:70;
+ratwos = 10:25:210;
+rathrees = 10:25:310;
 
 NumOfLoops = length(cgones)*length(raones)*length(cgtwos)*length(ratwos)*...
     length(cgthrees)*length(rathrees);
@@ -133,12 +114,9 @@ parfor i = 1:NumOfLoops
                 
                 % Number of features to initialize X matrix in
                 % generate_X_optver
-                NoF = 3;    % Number of regions
+                NoF = 3;    % Number of regions/features
                 % Train model
-                % Attention: Changed to !! ------------
-                % get_CSF_Tissue_v03 -> normalized
-                % quadratic and cubic terms allowed (in train_b_cv)
-                
+                               
                 % Check before running optimization:
                 % - feature extractor -> something changed? (maybe
                 % suppressed some feature)
@@ -147,8 +125,7 @@ parfor i = 1:NumOfLoops
                 
                 [~,~,RMSE,cvRMSE] = train_b_cv(greyHisto,y_file,fun,parameters,NoF);
                 
-%                 Save_X{1,i} = X;
-%                 Save_b{1,i} = betas;
+                
                 Save_RMSE(1,i) = RMSE;
                 Save_cvRMSE(1,i) = cvRMSE;
 
@@ -178,7 +155,6 @@ S1 = Save_cvRMSE;
 
 [m,i] = min(S);
 disp(['Minimum of RMSE: ' num2str(m) ', at ' num2str(i) ' and an cvRMSE of: ' num2str(S1(i)) '.'])
-Limits_cell{i}
 
 % idx1 = find(S < 7.9 & S1<7.9 & S < S1);
 
