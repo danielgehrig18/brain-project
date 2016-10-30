@@ -103,16 +103,16 @@ parameters = struct('cgone',cg1,'rangeone',ra1,'cgtwo',cg2,'rangetwo',ra2,...
 % betas = Save_b{n};
 
 % Generate X_test values        
-% fun = 'getCSF_Tissue_03';
-fun = 'feature_extract_3peaks_v1';
+fun = 'getCSF_Tissue_04';
+% fun = 'feature_extract_3peaks_v1';
 NoF = 3;
 
 % Create model
 % greyHisto_train replaced by path name
-[betas,~,~,~] = train_b_cv('../data/set_train/','../data/targets.csv',fun,parameters,NoF);
+[betas,~,RMSE,cvRMSE] = train_b_cv(greyHisto_train,'../data/targets.csv',fun,parameters,NoF);
 
-% Xtest = generate_X_optver(greyHisto_test,fun,parameters,NoF,'test');
-Xtest = generate_X('../data/set_test/',fun,parameters);
+Xtest = generate_X_optver(greyHisto_test,fun,parameters,NoF,'test');
+% Xtest = generate_X('../data/set_test/',fun,parameters);
 
 % Compute age estimates, quadratic and linear terms currently
 y_hat = [ones(138,1) Xtest Xtest.^2 Xtest.^3]*betas;
