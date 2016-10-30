@@ -19,12 +19,11 @@ parameters = struct('cgone', 220, ...
 
 % train model with Matlab function LinearModel.fit
 [model, X] = train_b('data/set_train', 'data/targets.csv', fun, parameters);                    
-                
 
 %% generate submission file from test set and resulting model
 disp('Training finished successfully!');
 disp('Creating submission file using Data: data/set_test and Targets: data/submit.csv ...');
 
-submission('data/set_test', 'data/submit.csv', model, fun, parameters);
+submission('data/set_test', 'submit.csv', model, fun, parameters);
 
 disp('Submission file created successfully!');

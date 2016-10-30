@@ -15,12 +15,6 @@ y = csvread(y_file);
 
 % generates #datapoints x (#features) data matrix
 X = generate_X(x_folder, fun, parameters); 
- 
-% sets weights because the data distribution is not uniform
-w = histcounts(y, 1:100)';
-w(w==0)=1;
-w = parameters.w_mult*w(y);
 
 % creates linear model
-model = LinearModel.fit(X, y, 'RobustOpts', 'on', 'Weights',w);
-
+model = LinearModel.fit(X,y, 'RobustOpts', 'bisquare');

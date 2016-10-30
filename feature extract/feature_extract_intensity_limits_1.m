@@ -20,7 +20,6 @@ function [ x ] = feature_extract_intensity_limits_1( path_name, parameters)%thre
     c = a.*b;
     
     x = sum(c(:));
-    x = [x, x^2, x^3];
     
 %     %find mean intensities of images and a total mean
 %         for z=1:sz(3)   %area between top of brain and ventricles

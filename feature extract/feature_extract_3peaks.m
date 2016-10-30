@@ -1,4 +1,4 @@
-function [ weights ] = feature_extract_3peaks( path_name , parameters)
+function [ w ] = feature_extract_3peaks( path_name , parameters)
 % Find number of grey values around specified center of gravity inside range
 % (3 regions), using the grey intensity histogram
 
@@ -12,6 +12,7 @@ function [ weights ] = feature_extract_3peaks( path_name , parameters)
 %       rangeone: 35
 %       rangetwo: 50
 %       rangethree: 110
+
 GH = feature_extract10(path_name,parameters);
 GH = GH/sum(GH(:));
 
@@ -40,9 +41,7 @@ grey = GH(idx2);
 white = GH(idx3);
 
 % Count number of voxels in specified range
-weights = [sum(ventricle(:)),sum(grey(:)),sum(white(:))];
-weights = [weights, weights.^2, weights.^3];
-% Normalize values
-% weights = weights/sum(GH(:));
+w = [sum(ventricle(:)),sum(grey(:)),sum(white(:))];
+w = [w, w(2)^3, w(1)*w(3), w(2)*w(3), w(2)^4, w(2)^3*w(3)];
 end
 
