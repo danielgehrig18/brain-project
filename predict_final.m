@@ -14,15 +14,14 @@ parameters = struct('cgone', 220, ...
                      'cgthree', 1450, ...
                      'rangeone', 50, ...
                      'rangetwo', 35, ...
-                     'rangethree', 110, ...
-                     'w_mult', 1);
+                     'rangethree', 110);
 
 % train model with Matlab function LinearModel.fit
 [model, X] = train_b('data/set_train', 'data/targets.csv', fun, parameters);                    
 
 %% generate submission file from test set and resulting model
 disp('Training finished successfully!');
-disp('Creating submission file using Data: data/set_test and Targets: data/submit.csv ...');
+disp('Creating submission file using Data: data/set_test...');
 
 submission('data/set_test', 'submit.csv', model, fun, parameters);
 

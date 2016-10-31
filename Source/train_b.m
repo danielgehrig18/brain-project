@@ -21,4 +21,4 @@ w = histcounts(y,1:100);
 w = w(y);
 
 % creates linear model
-model = LinearModel.fit(X,y, 'RobustOpts', 'bisquare', 'Weights', w);
+model = LinearModel.fit(X,y, 'RobustOpts', 'on', 'Weights', w);
