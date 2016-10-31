@@ -16,5 +16,9 @@ y = csvread(y_file);
 % generates #datapoints x (#features) data matrix
 X = generate_X(x_folder, fun, parameters); 
 
+% construct weighting matrix
+w = histcounts(y,1:100);
+w = w(y);
+
 % creates linear model
-model = LinearModel.fit(X,y, 'RobustOpts', 'bisquare');
+model = LinearModel.fit(X,y, 'RobustOpts', 'bisquare', 'Weights', w);
