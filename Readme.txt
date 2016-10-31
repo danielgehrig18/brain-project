@@ -34,8 +34,9 @@ Summary of Approach:
    - The specific form of the polynomial was chosen to minimize the BIC of the fit.
    
    - b is chosen through MLE with weighted LS. The weight matrix is of a bisquare
-     type so as to reduce the impact of outliers on the fit. the final formula for
-     b is:
+     type so as to reduce the impact of outliers on the fit. A second weight matrix
+     is multiplied to take into account the high density of old and young test subject.
+     The final formula for b is:
      
      b = (X^T*W*X)^-1*X^T*W*y 
 
