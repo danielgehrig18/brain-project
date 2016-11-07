@@ -1,4 +1,7 @@
 % show brains
+
+close all
+
 V_1 = nii_read_volume('data/set_train/train_23.nii');   %Age: 18
 V_2 = nii_read_volume('data/set_train/train_172.nii');  %Age: 45
 V_3 = nii_read_volume('data/set_train/train_14.nii');   %Age: 70
