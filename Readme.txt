@@ -14,7 +14,7 @@ Summary of Approach:
      the next step.)
 
     - Generate an intensity histogram of every brain with 5000 bins using MATLABs
-     imhist function.
+     histcounts function.
      Every bin has a width of 1 intensity unit and thus counts the number of 
      voxels with intensity i. Voxels with intensity 0 are excluded as they 
      correspond to background.
